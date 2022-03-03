@@ -1,5 +1,13 @@
-const index = () => {
-  return <div className="">Enter</div>;
+import Hero from "../components/homePage/Hero";
+import FeaturedPosts from "../components/homePage/FeaturedPosts";
+
+const HomePage = () => {
+  return (
+    <>
+      <Hero />
+      {/* <FeaturedPosts /> */}
+    </>
+  );
 };
 
-export default index;
+export default HomePage;

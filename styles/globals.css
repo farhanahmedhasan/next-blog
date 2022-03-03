@@ -1,3 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700&family=Inter:wght@400;600&family=Merriweather+Sans:wght@300;400;500;700&family=Ubuntu:wght@300;400;500;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --gradient-primary-radial: radial-gradient(circle at 0% 10%, rgb(255 255 255) 0%, rgb(255 255 255) 49%, rgb(254 208 203) 100%);
+  --gradient-primary-linear: linear-gradient(90deg, rgba(248, 87, 166, 1) 0%, rgba(255, 88, 88, 1) 100%);
+}
+
+body {
+  font-family: "ubuntu", sans-serif;
+  font-size: 16px;
+  color: #000;
+}
