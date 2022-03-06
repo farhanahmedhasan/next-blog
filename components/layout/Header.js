@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="bg-gradient-primary-radial px-8  flex items-center justify-between">
+    <header className="relative z-[100000] bg-transparent px-8  flex items-center justify-between">
       {/* Logo */}
       <Link href="/">
         <a className="flex items-center gap-x-4 cursor-pointer">
