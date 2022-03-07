@@ -16,7 +16,14 @@ const PostItem = ({ post }) => {
         <a>
           {/* Image */}
           <div className="flex flex-col ">
-            <Image className="block align-middle" src={`/images/posts/${image}`} objectFit="cover" alt={slug} height={280} width={420} />
+            <Image
+              className="block align-middle"
+              src={`/images/posts/${slug}/${image}`}
+              objectFit="cover"
+              alt={slug}
+              height={280}
+              width={420}
+            />
           </div>
 
           {/* Content */}
