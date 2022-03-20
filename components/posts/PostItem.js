@@ -11,7 +11,7 @@ const PostItem = ({ post }) => {
   });
 
   return (
-    <li className="border border-gray-300 bg-white shadow-lg rounded-sm overflow-hidden">
+    <li className="border border-gray-300 bg-white shadow-lg rounded-sm hover:shadow-lg overflow-hidden">
       <Link href={`/posts/${slug}`}>
         <a>
           {/* Image */}

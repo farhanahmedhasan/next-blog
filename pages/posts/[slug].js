@@ -1,17 +1,35 @@
-import { useRouter } from "next/router";
 import PostDetail from "../../components/postDetailPage/PostDetail";
+import { getPostData } from "../../lib/PostUtil";
 
-const PostDetailsPage = () => {
-  const DUMMY_POST = {
-    slug: "dummy-1",
-    title: "Getting Started With NextJS",
-    image: "getting-started-nextjs.png",
-    excerpt: "dummy 3",
-    date: "2022-02-10",
-    content: "# This is a first Post",
-  };
+const PostDetailsPage = (props) => {
+  if (!props.postData) {
+    <section className="py-20 bg-gray-100">
+      <div className="container">
+        <h2 className="text-center font-semibold text-4xl mb-16">Loading....</h2>
+      </div>
+    </section>;
+  }
 
-  return <PostDetail post={DUMMY_POST} />;
+  return <PostDetail post={props.postData} />;
 };
+
+export function getStaticProps(context) {
+  const { slug } = context.params;
+  const postData = getPostData(slug);
+
+  return {
+    props: {
+      postData,
+    },
+    revalidate: 600,
+  };
+}
+
+export function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true,
+  };
+}
 
 export default PostDetailsPage;
