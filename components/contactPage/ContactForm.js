@@ -51,11 +51,11 @@ const ContactForm = () => {
   useEffect(() => {
     if (!(requestStatusMessage.status === "error" || requestStatusMessage.status === "success")) return;
 
-    // const timer = setTimeout(() => {
-    //   setRequestStatusMessage({ ...requestStatusMessage, status: "", message: "" });
-    // }, 2000);
+    const timer = setTimeout(() => {
+      setRequestStatusMessage({ ...requestStatusMessage, status: "", message: "" });
+    }, 2000);
 
-    // return () => clearTimeout(timer);
+    return () => clearTimeout(timer);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [requestStatusMessage.status]);
