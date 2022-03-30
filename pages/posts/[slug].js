@@ -1,7 +1,10 @@
+import Head from "next/head";
+
 import PostDetail from "../../components/postDetailPage/PostDetail";
 import { getPostData } from "../../lib/PostUtil";
 
 const PostDetailsPage = (props) => {
+  console.log(props);
   if (!props.postData) {
     <section className="py-20 bg-gray-100">
       <div className="container">
@@ -10,10 +13,19 @@ const PostDetailsPage = (props) => {
     </section>;
   }
 
-  return <PostDetail post={props.postData} />;
+  console.log(props);
+  return (
+    <>
+      <Head>
+        <title>{props.postData.title}</title>
+        <meta name="description" content={props.postData.excerpt} />
+      </Head>
+      <PostDetail post={props.postData} />
+    </>
+  );
 };
 
-export function getStaticProps(context) {
+export function getServerSideProps(context) {
   const { slug } = context.params;
   const postData = getPostData(slug);
 
@@ -21,14 +33,6 @@ export function getStaticProps(context) {
     props: {
       postData,
     },
-    revalidate: 600,
-  };
-}
-
-export function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: true,
   };
 }
 

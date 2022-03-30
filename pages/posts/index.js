@@ -1,9 +1,19 @@
 import AllPost from "../../components/allPostPage/AllPost";
 
+import Head from "next/head";
+
 import { getAllPosts } from "../../lib/PostUtil";
 
 const AllPostsPage = (props) => {
-  return <AllPost posts={props.posts} />;
+  return (
+    <>
+      <Head>
+        <title>All Posts</title>
+        <meta name="description" content="All the porgramming posts that is related to JavaScript" />
+      </Head>
+      <AllPost posts={props.posts} />
+    </>
+  );
 };
 
 export function getStaticProps() {
